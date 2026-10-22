@@ -53,8 +53,7 @@
 
   .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .card { background: var(--white); border: 1px solid var(--parchment); border-top: 3px solid var(--crimson); padding: 30px 28px 26px; display: flex; flex-direction: column; }
-  .card img, .card .mono { width: 56px; height: 56px; border-radius: 14px; }
-  .card .mono { display: grid; place-items: center; background: var(--crimson); color: var(--white); font: 500 28px var(--serif); }
+  .card img { width: 56px; height: 56px; border-radius: 14px; }
   .card h3 { font-size: 30px; color: var(--crimson); margin: 22px 0 6px; }
   .card .label { color: var(--near-black); font-size: 11px; margin: 0 0 16px; }
   .card p { margin: 0 0 24px; }
@@ -143,7 +142,7 @@
           <div class="meta"><span class="label">Coming to iPhone</span><a href="https://wusta.app">wusta.app</a></div>
         </article>
         <article class="card">
-          <div class="mono" aria-hidden="true">L</div>
+          <img src="img/learno.svg" alt="Learno app icon">
           <h3>Learno</h3>
           <p class="label">Learning management for schools</p>
           <p>A learning management system that gives schools one place for courses, assignments and student progress.</p>
