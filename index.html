@@ -18,7 +18,7 @@
     --serif: "EB Garamond", Garamond, Georgia, serif; --sans: "Tenor Sans", "Gill Sans", sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 108px; }
   body { margin: 0; background: var(--off-white); color: var(--near-black); font: 400 18px/1.7 var(--serif); -webkit-font-smoothing: antialiased; }
   a { color: var(--crimson); text-underline-offset: 3px; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -26,14 +26,15 @@
   .label { font-family: var(--sans); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; }
   .rule { display: block; width: 52px; height: 3px; background: var(--gold); border: 0; margin: 22px 0 0; }
 
-  /* Wordmark: FELICITY (EB Garamond 500), gold baseline, CAPITAL (Tenor Sans, about 65% of FELICITY). */
-  .mark { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--white); line-height: 1; }
-  .mark .f { font: 500 22px var(--serif); letter-spacing: 0.14em; padding-left: 0.14em; }
-  .mark i { display: block; width: 100%; height: 2px; background: var(--gold); margin: 5px 0 6px; }
-  .mark .c { font: 400 14px var(--sans); letter-spacing: 0.42em; padding-left: 0.42em; }
+  /* Logo (guidelines p.3): the three-tower mark on a gold baseline, FELICITY (EB Garamond 500) and CAPITAL (Tenor Sans,
+     about 65% of FELICITY) beneath. Always used whole; at least 120px wide in a website header. */
+  .lockup { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--white); line-height: 1; min-width: 120px; }
+  .lockup svg { width: 46px; height: auto; margin-bottom: 4px; }
+  .lockup .f { font: 500 26px var(--serif); letter-spacing: 0.01em; }
+  .lockup .c { font: 400 17px var(--sans); letter-spacing: 0.24em; padding-left: 0.24em; margin-top: 1px; }
 
   header { position: sticky; top: 0; z-index: 10; background: var(--crimson); }
-  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 108px; }
   nav { display: flex; gap: 32px; }
   nav a { color: var(--white); text-decoration: none; }
   nav a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 6px; }
@@ -87,9 +88,20 @@
 </style>
 </head>
 <body>
+<!-- The Felicity Capital mark (same drawing as mark.svg), defined once and used in the header and footer. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="towers" viewBox="0 0 122 98">
+    <g fill="currentColor">
+      <path d="M4 35 L22 13 L40 35 Z"/><rect x="4" y="38" width="36" height="54"/>
+      <path d="M43 18 L61 0 L79 18 Z"/><path fill-rule="evenodd" d="M43 21 H79 V92 H43 Z M55 68 V92 H67 V68 Z"/>
+      <path d="M82 40 L100 21 L118 40 Z"/><rect x="82" y="43" width="36" height="49"/>
+    </g>
+    <rect x="0" y="92" width="122" height="3" fill="#FFD62B"/>
+  </symbol>
+</svg>
 <header>
   <div class="wrap">
-    <a class="mark" href="#top" aria-label="Felicity Capital, home"><span class="f">FELICITY</span><i></i><span class="c">CAPITAL</span></a>
+    <a class="lockup" href="#top" aria-label="Felicity Capital, home"><svg viewBox="0 0 122 98" aria-hidden="true"><use href="#towers"/></svg><span class="f">FELICITY</span><span class="c">CAPITAL</span></a>
     <nav class="label" aria-label="Sections">
       <a href="#products">Products</a>
       <a href="#real-estate">Real estate</a>
@@ -181,7 +193,7 @@
 
 <footer>
   <div class="wrap">
-    <span class="mark"><span class="f">FELICITY</span><i></i><span class="c">CAPITAL</span></span>
+    <span class="lockup"><svg viewBox="0 0 122 98" aria-hidden="true"><use href="#towers"/></svg><span class="f">FELICITY</span><span class="c">CAPITAL</span></span>
     <span class="label">© 2026 Felicity Capital LLC · <a href="https://yamared.com">Mared</a> · <a href="https://wusta.app">Wusta</a></span>
   </div>
 </footer>
