@@ -18,7 +18,7 @@
     --serif: "EB Garamond", Garamond, Georgia, serif; --sans: "Tenor Sans", "Gill Sans", sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 0; }
   body { margin: 0; background: var(--off-white); color: var(--near-black); font: 400 18px/1.7 var(--serif); -webkit-font-smoothing: antialiased; }
   a { color: var(--crimson); text-underline-offset: 3px; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -33,8 +33,8 @@
   .lockup .f { font: 500 26px var(--serif); letter-spacing: 0.01em; }
   .lockup .c { font: 400 17px var(--sans); letter-spacing: 0.24em; padding-left: 0.24em; margin-top: 1px; }
 
-  header { position: sticky; top: 0; z-index: 10; background: var(--crimson); }
-  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 108px; }
+  header { background: var(--crimson); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 136px; }
   nav { display: flex; gap: 32px; }
   nav a { color: var(--white); text-decoration: none; }
   nav a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 6px; }
