@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felicity Capital</title>
+<meta name="description" content="Felicity Capital LLC builds software products, including Mared, Wusta and Learno, and invests in residential real estate.">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0; --surface: #FFFFFF; --ink: #0F1B2D; --ink-2: #4A5568; --line: #E4E0D6;
+    --accent: #1F4E79; --accent-soft: #E8EEF5; --chip: #F0EDE5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0D1520; --surface: #142030; --ink: #EEF1F5; --ink-2: #A6B0BF; --line: #243246;
+      --accent: #8DB5DD; --accent-soft: #1B2B40; --chip: #1A2738;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.65 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; margin: 0; }
+
+  header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 20px; }
+  nav { display: flex; gap: 28px; }
+  nav a { color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 500; }
+  nav a:hover { color: var(--ink); }
+
+  .hero { padding: 104px 0 88px; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 18px; }
+  .hero h1 { font-size: clamp(38px, 6vw, 64px); max-width: 15ch; }
+  .hero p { font-size: 20px; color: var(--ink-2); max-width: 46ch; margin: 24px 0 0; }
+
+  section { padding: 80px 0; border-top: 1px solid var(--line); }
+  .head { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; margin-bottom: 48px; }
+  .head h2 { font-size: clamp(30px, 4vw, 40px); }
+  .head p { color: var(--ink-2); margin: 0; }
+
+  .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; }
+  .card img, .mono { width: 56px; height: 56px; border-radius: 14px; }
+  .mono { display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font: 600 26px Fraunces, Georgia, serif; }
+  .card h3 { font-size: 26px; margin: 22px 0 4px; }
+  .tag { font-size: 14px; color: var(--ink-2); margin: 0 0 16px; }
+  .card p { margin: 0 0 24px; }
+  .meta { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; }
+  .chip { background: var(--chip); color: var(--ink-2); border-radius: 999px; padding: 4px 12px; font-weight: 500; }
+  .meta a { font-weight: 600; text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+
+  .plain { max-width: 62ch; color: var(--ink-2); }
+  .plain p { margin: 0 0 16px; }
+
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .fact { border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; }
+  .fact b { display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; margin-bottom: 4px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--ink-2); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 860px) {
+    nav { display: none; }
+    .hero { padding: 64px 0 56px; }
+    .head, .products, .facts { grid-template-columns: 1fr; gap: 20px; }
+    section { padding: 56px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Felicity Capital home"><img src="favicon.svg" width="28" height="28" alt="">Felicity Capital</a>
+    <nav aria-label="Sections">
+      <a href="#products">Products</a>
+      <a href="#real-estate">Real estate</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <p class="eyebrow">Felicity Capital LLC</p>
+    <h1>Software products, built and run in house.</h1>
+    <p>Felicity Capital is a US company that builds and runs its own software products, Mared, Wusta and Learno, and invests in residential real estate.</p>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="head">
+        <h2>Our products</h2>
+        <p>Each product is designed, built and operated by Felicity Capital, for the people who use it: learners and professionals, real estate investors and the contractors they hire, and schools.</p>
+      </div>
+      <div class="products">
+        <article class="card">
+          <img src="img/mared.png" alt="Mared app icon">
+          <h3>Mared</h3>
+          <p class="tag">AI assistant for Windows</p>
+          <p>An assistant that lives on your screen. Ask by voice about anything you see, and Mared explains it, points to it, teaches you the software step by step, or does the task for you.</p>
+          <div class="meta"><span class="chip">Windows app</span><a href="https://yamared.com">yamared.com →</a></div>
+        </article>
+        <article class="card">
+          <img src="img/wusta.png" alt="Wusta app icon">
+          <h3>Wusta</h3>
+          <p class="tag">Marketplace for renovation work</p>
+          <p>Connects real estate investors with contractors in the United States. Investors post a renovation job, contractors bid, and the investor chooses who does the work, with payments handled in the app.</p>
+          <div class="meta"><span class="chip">Coming to iPhone</span><a href="https://wusta.app">wusta.app →</a></div>
+        </article>
+        <article class="card">
+          <div class="mono" aria-hidden="true">L</div>
+          <h3>Learno</h3>
+          <p class="tag">Learning management for schools</p>
+          <p>A learning management system that gives schools one place for courses, assignments and student progress.</p>
+          <div class="meta"><span class="chip">For schools</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="real-estate">
+    <div class="wrap">
+      <div class="head">
+        <h2>Real estate</h2>
+        <div class="plain">
+          <p>Alongside its software, Felicity Capital invests in residential property in the United States. We buy, renovate and resell homes, and work with other investors on wholesale deals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="head">
+        <h2>About the company</h2>
+        <div class="plain">
+          <p>Felicity Capital LLC is a Wyoming limited liability company, formed in 2026. It owns and operates Mared, Wusta and Learno, and holds its real estate investments.</p>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>Legal name</b>Felicity Capital Limited Liability Company</div>
+        <div class="fact"><b>Formed</b>Wyoming, United States, 2026</div>
+        <div class="fact"><b>Products</b>Mared · Wusta · Learno</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="head">
+        <h2>Contact</h2>
+        <div class="facts" style="grid-template-columns: 1fr 1fr;">
+          <div class="fact"><b>Email</b><a href="mailto:acquisitions@felicitycapital.group">acquisitions@felicitycapital.group</a></div>
+          <div class="fact"><b>Mailing address</b>30 N Gould St Ste N<br>Sheridan, WY 82801<br>United States</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Felicity Capital LLC. All rights reserved.</span>
+    <span><a href="https://yamared.com">Mared</a> · <a href="https://wusta.app">Wusta</a></span>
+  </div>
+</footer>
+</body>
+</html>
