@@ -1,0 +1,44 @@
+/* The privacy and terms pages. Same colors and type as index.html (Brand Guidelines v1.0); no other colors. */
+:root {
+  --crimson: #640d0d; --gold: #FFD62B; --white: #FFFFFF;
+  --deep: #3D0707; --off-white: #FAF7F0; --parchment: #F0EAD8; --near-black: #1A0A0A;
+  --serif: "EB Garamond", Garamond, Georgia, serif; --sans: "Tenor Sans", "Gill Sans", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--off-white); color: var(--near-black); font: 400 18px/1.7 var(--serif); -webkit-font-smoothing: antialiased; }
+a { color: var(--crimson); text-underline-offset: 3px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.label { font-family: var(--sans); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; }
+
+.lockup { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--white); line-height: 1; min-width: 120px; }
+.lockup svg { width: 46px; height: auto; margin-bottom: 4px; }
+.lockup .f { font: 500 26px var(--serif); letter-spacing: 0.01em; }
+.lockup .c { font: 400 17px var(--sans); letter-spacing: 0.24em; padding-left: 0.24em; margin-top: 1px; }
+
+header { background: var(--crimson); }
+header .wrap { display: flex; align-items: center; justify-content: space-between; height: 136px; }
+nav { display: flex; gap: 32px; }
+nav a { color: var(--white); text-decoration: none; }
+nav a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 6px; }
+
+main { padding: 72px 0 88px; }
+article { max-width: 68ch; }
+article .label { color: var(--crimson); }
+h1, h2 { font-family: var(--serif); font-weight: 500; line-height: 1.12; color: var(--crimson); margin: 0; }
+h1 { font-size: clamp(38px, 5.4vw, 56px); margin-top: 12px; }
+h2 { font-size: 28px; margin-top: 48px; }
+.rule { display: block; width: 52px; height: 3px; background: var(--gold); border: 0; margin: 22px 0 28px; }
+article p, article ul { margin: 14px 0 0; }
+article ul { padding-left: 22px; }
+article li { margin-top: 6px; }
+.keep { background: var(--parchment); border-left: 3px solid var(--gold); padding: 14px 18px; }
+
+footer { background: var(--near-black); color: var(--white); padding: 40px 0; }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+footer .label { font-size: 11px; }
+footer a { color: var(--white); }
+
+@media (max-width: 860px) {
+  nav { display: none; }
+  main { padding: 48px 0 60px; }
+}
