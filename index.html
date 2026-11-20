@@ -72,6 +72,17 @@
   .contact .label, .contact h2, .contact a { color: var(--white); }
   .contact .facts { grid-template-columns: 1fr 1fr; }
 
+  .lead { margin-top: 56px; max-width: 640px; }
+  .lead h3 { font-size: 28px; color: var(--white); }
+  .lead form { display: grid; gap: 16px; margin-top: 24px; }
+  .lead label { display: grid; gap: 6px; font: 400 14px var(--sans); }
+  .lead input[type=text], .lead input[type=tel], .lead input[type=email], .lead select { font: 400 17px var(--sans); padding: 11px 12px; border: 1px solid var(--parchment); border-radius: 0; background: var(--white); color: var(--near-black); width: 100%; box-sizing: border-box; }
+  .lead .agree { grid-template-columns: 22px 1fr; align-items: start; gap: 12px; line-height: 1.5; }
+  .lead .agree input { width: 18px; height: 18px; margin: 2px 0 0; }
+  .lead button { justify-self: start; font: 500 15px var(--sans); letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 28px; border: 0; background: var(--gold); color: var(--near-black); cursor: pointer; }
+  .lead button:disabled { opacity: 0.6; cursor: default; }
+  .lead .trap { position: absolute; left: -9999px; }
+  .lead [role=status] { font: 400 15px var(--sans); min-height: 1.5em; margin: 0; }
   footer { background: var(--near-black); color: var(--white); padding: 40px 0; }
   footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
   footer .label { font-size: 11px; }
@@ -186,6 +197,27 @@
           <div class="fact"><span class="label">Mailing address</span>30 N Gould St Ste N<br>Sheridan, WY 82801<br>United States</div>
         </div>
       </div>
+      <div class="lead" id="form">
+        <h3>Send us your details</h3>
+        <form id="lead">
+          <label>Name <input type="text" name="name" required maxlength="160" autocomplete="name"></label>
+          <label>Mobile phone <input type="tel" name="phone" required maxlength="40" autocomplete="tel"></label>
+          <label>Email (optional) <input type="email" name="email" maxlength="254" autocomplete="email"></label>
+          <label>I am a
+            <select name="role" required>
+              <option value="homeowner">Homeowner</option>
+              <option value="agent">Real estate agent</option>
+              <option value="wholesaler">Wholesaler</option>
+              <option value="buyer">Buyer</option>
+            </select>
+          </label>
+          <label>Property address (optional) <input type="text" name="address" maxlength="200" autocomplete="street-address"></label>
+          <label class="trap" aria-hidden="true">Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <label class="agree"><input type="checkbox" name="consent"><span>I agree to receive text messages from Felicity Capital LLC about my property or listing at the number above. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of any sale. <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a>.</span></label>
+          <button type="submit">Send</button>
+          <p role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
@@ -196,5 +228,25 @@
     <span class="label">© 2026 Felicity Capital LLC · <a href="https://yamared.com">Mared</a> · <a href="https://wusta.app">Wusta</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
   </div>
 </footer>
+<script>
+// The form goes to Felicity Capital's own CRM (its public key; the database checks every field).
+document.getElementById('lead').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  var f = e.target, say = f.querySelector('[role=status]'), b = f.querySelector('button');
+  var p = { name: f.name.value, phone: f.phone.value, email: f.email.value, role: f.role.value,
+            address: f.address.value, website: f.website.value, consent: f.consent.checked };
+  b.disabled = true; say.textContent = 'Sending…';
+  try {
+    var k = 'sb_publishable_DKkt_0an5W0-_fxsd89gJw_HelcoqsD';
+    var r = await fetch('https://inusxjslunjvkcnfshpx.supabase.co/rest/v1/rpc/site_lead', {
+      method: 'POST', headers: { apikey: k, Authorization: 'Bearer ' + k, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p: p }) });
+    if (r.ok) { f.reset(); say.textContent = 'Thank you. We will be in touch.'; }
+    else { var j = await r.json().catch(function () { return {}; });
+           say.textContent = r.status === 400 && j.message ? j.message : 'That did not go through. Please e-mail acquisitions@felicitycapital.group.'; }
+  } catch (_) { say.textContent = 'That did not go through. Please e-mail acquisitions@felicitycapital.group.'; }
+  b.disabled = false;
+});
+</script>
 </body>
 </html>
